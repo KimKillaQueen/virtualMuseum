@@ -22,6 +22,9 @@ public class playerMove : MonoBehaviour
         dir.x = Input.GetAxisRaw("Horizontal");
         dir.z = Input.GetAxisRaw("Vertical");
 
+        if(!playerRB.isGrounded) {
+         dir.y = -4.9f;   
+        }
         dir = transform.TransformDirection(dir);
         // if (dir.magnitude > 0)
         // {
@@ -38,5 +41,7 @@ public class playerMove : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + rotateSpeed * Vector3.up * Time.deltaTime);
         }
+
+
     }
 }
